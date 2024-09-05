@@ -1,9 +1,10 @@
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-const Header = () => (
+const Header = ({title, itemTotal}) => (
   <header>
-    <h1>Grocery List</h1>
-    <span className="total-items">Items: 1</span>
+    <h1>{title}</h1>
+    <span className="total-items">Items: {itemTotal(n => n + 1)}</span>
   </header>
 );
 
@@ -26,7 +27,10 @@ const Counter = () => (
 
 const App = () => (
   <div className="grocery-list">
-    <Header />
+    <Header  
+	    title='Grocery List'
+	    itemTotal={10}
+	  />
 
     {/* Grocery List */}
     <Item />
@@ -34,4 +38,8 @@ const App = () => (
 );
 
 const root = createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
