@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 const items = [
@@ -31,22 +31,28 @@ const Header = ({ title, itemTotal }) => (
   </header>
 );
 
-const Item = ({ name, quantity }) => (
+const Item = ({ name }) => (
   <div className="item">
     <button className="remove-item" />
     <span className="item-name">{name}</span>
-    <Counter quantity={quantity} />
+    <Counter />
   </div>
 );
 
-const Counter = ({ quantity }) => (
-  <div className="quantity">
-    <span className="qty-label">QTY</span>
-    <button className="increment">+</button>
-    <button className="decrement">-</button>
-    <span className="quantity-amount">{quantity}</span>
-  </div>
-);
+const Counter = () => {
+
+  const [quantity, setQuantity] = useState(0);
+
+  return (
+    <div className="quantity">
+      <span className="qty-label">QTY</span>
+      <button className="increment">+</button>
+      <button className="decrement">-</button>
+      <span className="quantity-amount">{quantity}</span>
+    </div>
+  );
+  
+};
 
 const App = ({ initialList }) => (
   <div className="grocery-list">
@@ -54,7 +60,7 @@ const App = ({ initialList }) => (
 
     {/* Grocery List */}
     {initialList.map((item) => (
-      <Item name={item.name} quantity={item.quantity} key={item.id} />
+      <Item name={item.name} key={item.id} />
     ))}
   </div>
 );
