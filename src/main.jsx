@@ -43,10 +43,14 @@ const Counter = () => {
 
   const [quantity, setQuantity] = useState(0);
 
+  const incrementQuantity = () => {
+    console.log('Hello from inside incrementQuantity');
+  };
+
   return (
     <div className="quantity">
       <span className="qty-label">QTY</span>
-      <button className="increment">+</button>
+      <button className="increment" onClick={incrementQuantity}>+</button>
       <button className="decrement">-</button>
       <span className="quantity-amount">{quantity}</span>
     </div>
