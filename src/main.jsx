@@ -15,7 +15,7 @@ const App = () => (
         id: 2,
       },
       {
-        	name: "Pasta",
+        name: "Pasta",
         id: 3,
       },
       {
