@@ -5,11 +5,11 @@ import { createRoot } from "react-dom/client";
 const App = () => (
 
   const [items, setItems] = useState(
-	[
-		{
-			name: "Apples",
-			id: 1,
-		},
+  [
+  {
+  name: "Apples",
+  id: 1,
+  },
   				{
     				name: "Bananas",
     				id: 2,
