@@ -1,28 +1,46 @@
 import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 
-const items = [
-  {
-    name: "Apples",
-    quantity: 5,
-    id: 1,
-  },
-  {
-    name: "Bananas",
-    quantity: 7,
-    id: 2,
-  },
-  {
-    name: "Pasta",
-    quantity: 1,
-    id: 3,
-  },
-  {
-    name: "Cookies",
-    quantity: 12,
-    id: 4,
-  },
-];
+
+const App = ({ initialList }) => (
+  const [item, setItem] = useState(
+				[
+						{
+    				name: "Apples",
+    				quantity: 5,
+    				id: 1,
+  				},
+  				{
+    				name: "Bananas",
+    				quantity: 7,
+    				id: 2,
+  				},
+  				{
+    				name: "Pasta",
+    				quantity: 1,
+    				id: 3,
+  				},
+  				{
+    				name: "Cookies",
+    				quantity: 12,
+    				id: 4,
+  				},
+   ]);
+);
+
+
+  <div className="grocery-list">
+    <Header title="Grocery List" itemTotal={initialList.length} />
+
+    {/* Grocery List */}
+    {initialList.map((item) => (
+      <Item name={item.name} key={item.id} />
+    ))}
+  </div>
+);
+
+
+
 
 const Header = ({ title, itemTotal }) => (
   <header>
@@ -64,16 +82,6 @@ const Counter = () => {
   
 };
 
-const App = ({ initialList }) => (
-  <div className="grocery-list">
-    <Header title="Grocery List" itemTotal={initialList.length} />
-
-    {/* Grocery List */}
-    {initialList.map((item) => (
-      <Item name={item.name} key={item.id} />
-    ))}
-  </div>
-);
 
 const root = createRoot(document.getElementById("root"));
 root.render(
