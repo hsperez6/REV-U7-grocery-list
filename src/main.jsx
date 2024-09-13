@@ -10,20 +10,20 @@ const App = () => (
         name: "Apples",
         id: 1,
       },
-  				{
-    				name: "Bananas",
-    				id: 2,
-  				},
-  				{
-    				name: "Pasta",
-    				id: 3,
-  				},
-  				{
-    				name: "Cookies",
-    				id: 4,
-  				},
-   	]
-		);
+      {
+        name: "Bananas",
+        id: 2,
+      },
+      {
+        	name: "Pasta",
+        id: 3,
+      },
+      {
+        name: "Cookies",
+        id: 4,
+      },
+    ]
+  );
 
 
   <div className="grocery-list">
