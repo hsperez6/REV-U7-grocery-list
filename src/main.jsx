@@ -27,7 +27,7 @@ const App = () => (
 
 
   <div className="grocery-list">
-    <Header title="Grocery List" itemTotal={initialList.length} />
+    <Header title="Grocery List" itemTotal={items.length} />
 
     {/* Grocery List */}
     {items.map((item) => (
