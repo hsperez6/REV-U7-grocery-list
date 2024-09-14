@@ -41,6 +41,40 @@ const App = () => {
   );
 };
 
+
+
+/******************************************************
+ * COMPONENTS
+*******************************************************/
+
+const App = ({ initialList }) => {
+
+  const [itemName, setItemName] = useState([]);
+
+
+
+
+
+
+
+  return (
+    <div className="grocery-list">
+    <Header title="Grocery List" itemTotal={initialList.length} />
+
+    {/* Grocery List */}
+    {initialList.map((item) => (
+      <Item name={item.name} key={item.id} />
+    ))}
+  </div>
+  );
+
+};
+
+
+
+
+
+
 const Header = ({ title, itemTotal }) => (
   <header>
     <h1>{title}</h1>
@@ -83,6 +117,14 @@ const Counter = () => {
   );
 };
 
+<<<<<<< Updated upstream
+=======
+
+
+/*********************************************************
+ * ROOT AND RENDER
+**********************************************************/
+>>>>>>> Stashed changes
 const root = createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
