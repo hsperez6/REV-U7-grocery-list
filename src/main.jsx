@@ -1,6 +1,10 @@
 import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 
+/******************************************************
+ * COMPONENTS
+ *******************************************************/
+
 const App = () => {
   const [items, setItems] = useState([
     {
@@ -25,10 +29,6 @@ const App = () => {
     setItems();
   };
 
-
-
-
-
   return (
     <div className="grocery-list">
       <Header title="Grocery List" itemTotal={items.length} />
@@ -40,40 +40,6 @@ const App = () => {
     </div>
   );
 };
-
-
-
-/******************************************************
- * COMPONENTS
-*******************************************************/
-
-const App = ({ initialList }) => {
-
-  const [itemName, setItemName] = useState([]);
-
-
-
-
-
-
-
-  return (
-    <div className="grocery-list">
-    <Header title="Grocery List" itemTotal={initialList.length} />
-
-    {/* Grocery List */}
-    {initialList.map((item) => (
-      <Item name={item.name} key={item.id} />
-    ))}
-  </div>
-  );
-
-};
-
-
-
-
-
 
 const Header = ({ title, itemTotal }) => (
   <header>
@@ -117,14 +83,9 @@ const Counter = () => {
   );
 };
 
-<<<<<<< Updated upstream
-=======
-
-
 /*********************************************************
  * ROOT AND RENDER
-**********************************************************/
->>>>>>> Stashed changes
+ **********************************************************/
 const root = createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
