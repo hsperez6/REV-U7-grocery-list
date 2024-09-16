@@ -1,6 +1,10 @@
 import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 
+/******************************************************
+ * COMPONENTS
+ *******************************************************/
+
 const App = () => {
   const [items, setItems] = useState([
     {
@@ -22,12 +26,8 @@ const App = () => {
   ]);
 
   const handleRemoveItem = (id) => {
-    setItems();
+    setItems((prevItems) => prevItems.filter((i) => i.id !== id));
   };
-
-
-
-
 
   return (
     <div className="grocery-list">
@@ -35,45 +35,16 @@ const App = () => {
 
       {/* Grocery List */}
       {items.map((item) => (
-        <Item name={item.name} key={item.id} />
+        <Item
+          name={item.name}
+          id={item.id}
+          key={item.id}
+          removeItem={handleRemoveItem}
+        />
       ))}
     </div>
   );
 };
-
-
-
-/******************************************************
- * COMPONENTS
-*******************************************************/
-
-const App = ({ initialList }) => {
-
-  const [itemName, setItemName] = useState([]);
-
-
-
-
-
-
-
-  return (
-    <div className="grocery-list">
-    <Header title="Grocery List" itemTotal={initialList.length} />
-
-    {/* Grocery List */}
-    {initialList.map((item) => (
-      <Item name={item.name} key={item.id} />
-    ))}
-  </div>
-  );
-
-};
-
-
-
-
-
 
 const Header = ({ title, itemTotal }) => (
   <header>
@@ -82,9 +53,9 @@ const Header = ({ title, itemTotal }) => (
   </header>
 );
 
-const Item = ({ name }) => (
+const Item = ({ name, id, removeItem }) => (
   <div className="item">
-    <button className="remove-item" />
+    <button className="remove-item" onClick={() => removeItem(id)}/>
     <span className="item-name">{name}</span>
     <Counter />
   </div>
@@ -117,14 +88,9 @@ const Counter = () => {
   );
 };
 
-<<<<<<< Updated upstream
-=======
-
-
 /*********************************************************
  * ROOT AND RENDER
-**********************************************************/
->>>>>>> Stashed changes
+ **********************************************************/
 const root = createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
